@@ -24,7 +24,6 @@ export default {
     const windowSize = ref(null);
     const cards = ref("");
     const store = useStore();
-    console.log(store);
     const myEventHandler = () => {
       windowSize.value = window.innerWidth;
       if (window.innerWidth < 1140) {

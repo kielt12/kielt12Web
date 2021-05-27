@@ -10,7 +10,6 @@ const state = {
 const actions = {
   async getModule({ commit }) {
     const response = await get_module();
-    console.log(env.VUE_APP_API_URL)
     commit("addModule", response.data);
   },
 };
