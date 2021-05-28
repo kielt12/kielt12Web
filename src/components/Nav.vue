@@ -58,9 +58,9 @@
         </div>
 
         <ul :style="{ top: navToggle ? '-1600px' : '-16px' }">
-          <li v-for="(page, index) in nav.pages" :key="index">
-            <router-link :to="nav.links[index]" exact @click="close"
-              >{{ page }}
+          <li v-for="(route, index) in nav" :key="index">
+            <router-link :to="route.links" exact @click="close"
+              >{{ route.pages }}
             </router-link>
           </li>
         </ul>
@@ -70,24 +70,54 @@
 </template>
 
 <script>
+import { onUnmounted, reactive, ref } from "vue";
 export default {
-  components: {},
-  methods: {
-    toggle() {
-      this.navToggle = this.navToggle ? false : true;
-    },
-    close() {
-      this.navToggle = true;
-      this.$refs.list.classList.toggle("active");
-    },
-  },
-  data() {
-    return {
-      navToggle: true,
-      nav: {
-        pages: ["Home", "Projects", "Contact"],
-        links: ["/", "/projects", "/contact"],
+  setup() {
+    const navToggle = ref(true);
+    const windowSize = ref(null);
+    const list = ref(null)
+
+    const eventHandler = () =>{
+       windowSize.value = window.innerWidth;
+    }
+
+    const nav = reactive([
+      {
+        pages: "Home",
+        links: "/",
       },
+      {
+        pages: "Projects",
+        links: "/projects",
+      },
+      {
+        pages: "Contact",
+        links: "/contact",
+      },
+    ]);
+
+
+    const close =() =>{
+      if(windowSize.value <= 1200){
+         navToggle.value = true;
+      list.value.classList.toggle("active");
+      }
+    }
+
+    const toggle = () =>{
+      navToggle.value = navToggle.value ? false : true
+    }
+    eventHandler();
+    window.addEventListener("resize",  eventHandler);
+    onUnmounted(() => {
+      window.removeEventListener("resize",  eventHandler);
+    });
+    return {
+      navToggle,
+      nav,
+      list,
+      close,
+      toggle
     };
   },
 };
@@ -258,22 +288,5 @@ nav ul li a:hover {
   .router-link-exact-active a {
     background: red;
   }
-
-  /* nav a::before {
-    content: '';
-    display: block;
-    height: 5px;
-    background: black;
-    position: absolute;
-    top: -.75em;
-    left: 0;
-    right: 0;
-    transform: scale(0, 1);
-    transition: transform ease-in-out 250ms;
-  }
-  
-  nav a:hover::before {
-    transform: scale(1,1);
-  } */
 }
 </style>
