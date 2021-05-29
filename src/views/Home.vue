@@ -7,7 +7,7 @@
         <h2 id="text1">Stack</h2>
         <h2 id="text2">Developer</h2>
         <img class="person-img" src="../assets/person-tablet.png" alt="" />
-        <h3>Ui/UX To Backend</h3>
+        <h3>UI/UX To Backend</h3>
       </div>
       <div class="contact-container">
         <img @click="contact" src="../assets/contact.png" alt="" />

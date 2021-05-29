@@ -6,8 +6,14 @@
       <a href="https://github.com/kielt12">GitHub.</a>
     </h3>
     <div :class="scroll()">
-      <div v-for="card in cardModule" :key="card.id">
-        <component :is="cards" :payload="card"> </component> 
+      <div v-if="cardModule !== null">
+        <div v-for="card in cardModule" :key="card.id">
+          <component :is="cards" :payload="card"> </component>
+        </div>
+      </div>
+      <div id="loading-wrapper" v-else>
+        <div id="loading-text">LOADING</div>
+        <div id="loading-content"></div>
       </div>
     </div>
   </div>
@@ -48,7 +54,7 @@ export default {
       myEventHandler,
       windowSize,
       cards,
-     scroll,
+      scroll,
       cardModule: computed(() => store.getters.cardModule),
     };
   },
@@ -84,15 +90,71 @@ export default {
   }
   .scroll {
     overflow-y: auto;
-    height: 620px;
+    height: 660px;
     overflow: -moz-scrollbars-none;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    //overflow: hidden;
     &::-webkit-scrollbar {
       width: 0 !important;
       display: none;
     }
+  }
+}
+#loading-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 40%;
+  left: 0;
+  top: 120;
+}
+
+#loading-text {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color:#fff;
+  width: 100px;
+  height: 30px;
+  margin: -7px 0 0 -45px;
+  text-align: center;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 20px;
+}
+
+#loading-content {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 170px;
+  height: 170px;
+  margin: -85px 0 0 -85px;
+  border: 3px solid #f00;
+}
+
+#loading-content {
+  border: 3px solid transparent;
+  border-top-color: rgb(121, 61, 185);
+  border-bottom-color: rgb(121, 61, 185);
+  border-radius: 50%;
+  -webkit-animation: loader 2s linear infinite;
+  -moz-animation: loader 2s linear infinite;
+  -o-animation: loader 2s linear infinite;
+  animation: loader 2s linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 .not-scroll {
