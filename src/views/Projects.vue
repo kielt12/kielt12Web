@@ -1,6 +1,6 @@
 <template>
   <div class="project-container">
-    <h1>All Recent Projects</h1>
+    <h1>Recent Projects</h1>
     <h3>
       These some of my most recent projects, you can see more of them on my
       <a href="https://github.com/kielt12">GitHub.</a>

@@ -5,8 +5,14 @@
     </div>
     <div class="project-card-bottom">
       <div class="project-card-text">
-        <h1>{{payload.header}}</h1>
-        <p>{{payload.paragraph}}</p>
+        <div class="header">
+          <h1>{{ payload.header }}</h1>
+          <div v-if="payload.site !== null" class="demo">
+            <h2><a :href="payload.site">Click the link here.</a></h2>
+          </div>
+        </div>
+
+        <p>{{ payload.paragraph }}</p>
         <div class="icons-controller">
           <img class="icon-stack" src="../assets/layer.png" alt="" />
           <div class="icon-array" v-for="da in payload.icons" :key="da">
@@ -16,9 +22,8 @@
       </div>
       <div class="project-github">
         <a :href="payload.github">
-           <img src="../assets/github2.png" alt="" />
+          <img src="../assets/github2.png" alt="" />
         </a>
-       
       </div>
     </div>
   </div>
@@ -26,17 +31,29 @@
 
 <script>
 export default {
-  props:{
-    payload:Object
+  props: {
+    payload: Object,
   },
   data() {
-    return {
-    };
+    return {};
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.header {
+  display: flex;
+  justify-content: space-between;
+  div {
+    flex-basis:20%;
+    h1{
+      font-size: 2px;
+    }
+  }
+}
+
+
+
 .project-card {
   padding-bottom: 12px;
   display: flex;
@@ -99,8 +116,24 @@ export default {
   .icon-array {
     padding-right: 12px;
     padding-top: 5px;
-    
   }
+}
+
+.demo {
+  h2{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+   color: #fff;
+  }
+  a {
+    font-weight: 400;
+      text-decoration: none;
+      color: #fff;
+      cursor: pointer;
+    }
 }
 
 @media only screen and (max-width: 1650px) {
