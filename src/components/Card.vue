@@ -4,17 +4,22 @@
       <img :src="payload.image" alt="" />
     </div>
     <div class="card-bottom">
-      <h1>{{payload.header}}</h1>
+      <h1>{{ payload.header }}</h1>
       <div class="card-text">
         <div v-for="da in payload.icons" :key="da">
-          <img :src="da" alt="">
+          <img :src="da" alt="" />
         </div>
       </div>
       <div class="github">
-         <a :href="payload.github">
-        <span>See more</span>
-        <img src="../assets/github3.png" alt="" />
-        </a>
+        <div>
+          <a :href="payload.github">
+            <span>See more</span>
+            <img src="../assets/github3.png" alt="" />
+          </a>
+        </div>
+        <div v-if="payload.site !== null">
+          <h1><a :href="payload.site">Site here </a></h1>
+        </div>
       </div>
     </div>
   </div>
@@ -22,12 +27,11 @@
 
 <script>
 export default {
-  props:{
-    payload:Object
+  props: {
+    payload: Object,
   },
   data() {
-    return {
-    };
+    return {};
   },
 };
 </script>
@@ -45,13 +49,12 @@ export default {
 }
 .card-top {
   height: 240px;
-  
+
   img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 240px;
-     width: 100%;
-   
+    width: 100%;
   }
 }
 .card-bottom {
@@ -71,8 +74,8 @@ export default {
     line-height: 26px;
   }
   .card-text {
-    padding-left:6% ;
-    padding-right:6% ;
+    padding-left: 6%;
+    padding-right: 6%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     div {
@@ -91,17 +94,27 @@ export default {
     }
   }
   .github {
-    padding-left:6% ;
-    padding-right:6% ;
+    padding-left: 6%;
+    padding-right: 6%;
     cursor: pointer;
     margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
     color: white;
     span {
       padding-right: 12px;
+      font-size: 16px;
     }
-    a{
+    a {
       text-decoration: none;
       color: inherit;
+    }
+    h1 {
+      line-height: 17px;
+      font-size: 16px;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
     }
   }
 }
