@@ -54,7 +54,7 @@ export default {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 240px;
-    width: 100%;
+    width: 350px;
   }
 }
 .card-bottom {
