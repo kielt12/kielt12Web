@@ -41,6 +41,7 @@
 <script>
 import { useRouter } from "vue-router";
 export default {
+  title:"Moulon",
   components: {},
   setup() {
     const router = useRouter();

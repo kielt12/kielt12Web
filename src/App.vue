@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import { useStore } from "vuex";
 export default {
+  title:"Moulon",
   components: { Nav, Footer },
   setup(){
     const store = useStore()

@@ -2,7 +2,7 @@
   <div class="project-container">
     <h1>Recent Projects</h1>
     <h3>
-      These some of my most recent projects, you can see more of them on my
+      These are some of my most recent projects, you can see more of them on my
       <a href="https://github.com/kielt12">GitHub.</a>
     </h3>
     <div :class="scroll()">
@@ -26,6 +26,7 @@ import Card from "../components/Card";
 import { useStore } from "vuex";
 export default {
   components: { ProjectCard, Card },
+  title:"Projects",
   setup() {
     const windowSize = ref(null);
     const cards = ref("");

@@ -65,6 +65,7 @@
 <script>
 import { reactive } from "vue";
 export default {
+  title:"Contact",
   setup() {
     const form = reactive({
       name: "",
