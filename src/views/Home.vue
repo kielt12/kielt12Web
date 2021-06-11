@@ -10,15 +10,31 @@
         <h3>UI/UX To Backend</h3>
       </div>
       <div class="contact-container">
-        <img @click="contact" src="../assets/contact.png" alt="" />
+        <div class="icons-v">
+          <a href="https://www.linkedin.com/in/kiel-moulon-7b22b1195"
+            ><img src="../assets/linkedin_home.png" alt=""
+          /></a>
+          <a @click="contact" href=""
+            ><img src="../assets/mail_home.png" alt=""
+          /></a>
+          <a href="https://github.com/kielt12"
+            ><img src="../assets/github_home.png" alt=""
+          /></a>
+        </div>
         <button @click="contact">Contact me!</button>
       </div>
     </div>
     <div class="text-right">
       <img src="../assets/C18.png" alt="" />
     </div>
-    <div class="icons" @click="contact">
-      <img src="../assets/icons.png" alt="" />
+    <div class="icons">
+      <a href="https://www.linkedin.com/in/kiel-moulon-7b22b1195"
+        ><img src="../assets/linkedin_home.png" alt=""
+      /></a>
+      <img @click="contact" src="../assets/mail_home.png" alt="" />
+      <a href="https://github.com/kielt12"
+        ><img src="../assets/github_home.png" alt=""
+      /></a>
     </div>
   </div>
 </template>
@@ -26,22 +42,27 @@
 import { useRouter } from "vue-router";
 export default {
   components: {},
-  setup(){
+  setup() {
     const router = useRouter();
-    const contact = () =>{
+    const contact = () => {
       router.push({
-          name: "Contact",
-        });
-    }
-    return{
+        name: "Contact",
+      });
+    };
+    return {
       contact,
-    }
-  }
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../variables.scss";
+.text-left-flex {
+ #text1 {
+    padding-left: 12px;
+  }
+}
 .home {
   display: flex;
   padding-left: 6%;
@@ -107,6 +128,9 @@ export default {
 .icons {
   cursor: pointer;
   display: none;
+  img {
+    padding: 12px;
+  }
 }
 .text-left {
   display: flex;
@@ -134,6 +158,7 @@ export default {
   }
   #text2 {
     display: inline;
+    padding-left: 12px;
   }
   .text-right {
     img {
@@ -166,6 +191,13 @@ export default {
   }
   .icons {
     display: block;
+  }
+}
+.icons-v {
+  display: flex;
+  flex-direction: column;
+  img {
+    padding-bottom: 12px;
   }
 }
 
