@@ -2,7 +2,7 @@ import axios from "axios";
 import env from '../../../env'
 
 function get_module(){
-  return axios.get(env.VUE_APP_API_URL+"get-module");
+  return axios.get(env.VUE_APP_API_URL+"prod");
 }
 const state = {
   cardData: null,

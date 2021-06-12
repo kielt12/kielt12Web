@@ -17,7 +17,7 @@
             <img src="../assets/github3.png" alt="" />
           </a>
         </div>
-        <div v-if="payload.site !== null">
+        <div v-if="payload.site !== ''">
           <h1><a :href="payload.site">Site here </a></h1>
         </div>
       </div>

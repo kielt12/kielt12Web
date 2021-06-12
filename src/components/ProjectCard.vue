@@ -7,7 +7,7 @@
       <div class="project-card-text">
         <div class="header">
           <h1>{{ payload.header }}</h1>
-          <div v-if="payload.site !== null" class="demo">
+          <div v-if="payload.site !== ''" class="demo">
             <h2><a :href="payload.site">Click the link here.</a></h2>
           </div>
         </div>
