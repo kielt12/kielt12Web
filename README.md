@@ -1,4 +1,4 @@
-# kielt12
+# Personal Website
 
 ## Project setup
 ```
