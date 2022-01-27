@@ -11,15 +11,15 @@
       </div>
       <div class="contact-container">
         <div class="icons-v">
-          <a href="https://www.linkedin.com/in/kiel-moulon-7b22b1195"
-            ><img src="../assets/linkedin_home.png" alt=""
-          /></a>
+          
+            <img @click="contact" src="../assets/linkedin_home.png" alt=""
+        >
           <a @click="contact" href=""
             ><img src="../assets/mail_home.png" alt=""
           /></a>
-          <a href="https://github.com/kielt12"
-            ><img src="../assets/github_home.png" alt=""
-          /></a>
+          
+            <img src="../assets/github_home.png" alt=""/>
+      
         </div>
         <button @click="contact">Contact me!</button>
       </div>
@@ -28,13 +28,12 @@
       <img src="../assets/C18.png" alt="" />
     </div>
     <div class="icons">
-      <a href="https://www.linkedin.com/in/kiel-moulon-7b22b1195"
-        ><img src="../assets/linkedin_home.png" alt=""
-      /></a>
+        <img @click="contact" src="../assets/linkedin_home.png" alt=""
+      />
       <img @click="contact" src="../assets/mail_home.png" alt="" />
-      <a href="https://github.com/kielt12"
-        ><img src="../assets/github_home.png" alt=""
-      /></a>
+      
+        <img src="../assets/github_home.png" alt=""/>
+
     </div>
   </div>
 </template>

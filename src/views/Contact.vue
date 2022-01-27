@@ -49,12 +49,12 @@
         <div class="contact-images">
           <img class="draw" src="../assets/group3.png" alt="" />
           <div class="contact-icons">
-            <img src="../assets/email.png" alt="" />
-            <span>Kmoulon@gmail.com</span>
+            <!-- <img src="../assets/email.png" alt="" /> -->
+            <span></span>
           </div>
           <div class="contact-icons">
-            <img src="../assets/linkedin.png" alt="" />
-            <span>linkedin.com/in/kiel-moulon-7b22b1195</span>
+            <!-- <img src="../assets/linkedin.png" alt="" /> -->
+            <span></span>
           </div>
         </div>
       </div>
